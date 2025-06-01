@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "spring-ai-mcp-weather": {
+      "command": "java",
+      "args": [
+        "-Dspring.ai.mcp.server.stdio=true",
+        "-Dserver.port=9998",
+        "-jar",
+        "D:\\spring-ai-mcp-server-stdio-0.0.1-SNAPSHOT.jar"
+      ]
+    }
+  }
+}
