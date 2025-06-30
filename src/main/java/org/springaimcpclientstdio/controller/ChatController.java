@@ -5,6 +5,7 @@ import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -22,8 +23,8 @@ public class ChatController {
     }
 
     @GetMapping("/chat")
-    public String chat() {
-        PromptTemplate promptTemplate = new PromptTemplate("My current location is latitude 10 and longitude 10, can I play tennis in this weather");
+    public String chat(@RequestParam String query) {
+        PromptTemplate promptTemplate = new PromptTemplate(query);
         Prompt prompt = promptTemplate.create();
         ChatClient.CallResponseSpec res = chatClient.prompt(prompt).call();
 
